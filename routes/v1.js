@@ -11,7 +11,6 @@ const isValidDate = (date) => {
 router.get("/:date", (req, res) => {
   const inputDate = req.params.date;
   let date;
-
   let regex = /^\d+$/;
 
   // Check if the input is a Unix timestamp (integer), otherwise treat it as a human-readable date
