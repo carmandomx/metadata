@@ -12,8 +12,10 @@ router.get("/:date", (req, res) => {
   const inputDate = req.params.date;
   let date;
 
+  let regex = /^\d+$/;
+
   // Check if the input is a Unix timestamp (integer), otherwise treat it as a human-readable date
-  if (Number.isInteger(+inputDate)) {
+  if (regex.test(inputDate)) {
     date = new Date(+inputDate * 1000);
   } else {
     date = new Date(inputDate);
@@ -28,6 +30,5 @@ router.get("/:date", (req, res) => {
     res.status(400).json({ error: "Invalid date" });
   }
 });
-
 // Export the router to be used in index.js
 export default router;
