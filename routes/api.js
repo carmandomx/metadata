@@ -7,7 +7,7 @@ apiRouter.get("/:date", (req, res) => {
   const queryDate = req.params.date;
   const dateFunction = transformDate(queryDate);
   if(!dateFunction){
-    res.send("error 404 not found")
+    res.status(400).send({"error 400":"invalid date format"})
   }else{
     res.send(dateFunction);
   }
